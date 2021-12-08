@@ -11,27 +11,29 @@ white = (255, 255, 255)
 
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 size = 10
-cells = [[]]
-for x in range(0, screenWidth-1, size):
+cells = []
+for x in range(0, screenWidth, size):
     row = []
     cells.append(row)
-    for y in range(0, screenHeight-1, size):
-        cell = Cell.Cell([x, y], size)
-        # rand_num = random.randint(0,1)
-        # if rand_num == 1:
-        #     cell.alive = True
-        # else:
-        #     cell.alive = False
+    for y in range(0, screenHeight, size):
+        cell = Cell.Cell([x, y], size, False)
+        rand_num = random.randint(0,1)
+        if rand_num == 1:
+            cell.alive = True
+        else:
+            cell.alive = False
         cells[x//size].append(cell)
-cells[50][50].alive = True
-cells[51][51].alive = True
-cells[51][52].alive = True
-cells[50][52].alive = True
-cells[49][52].alive = True
+# cells[50][50].alive = True
+# cells[51][51].alive = True
+# cells[51][52].alive = True
+# cells[50][52].alive = True
+# cells[49][52].alive = True
 
 # print(cells)
+
+
 def copy_cells(cells):
-    copy = [[]]
+    copy = []
     for rows in cells:
         row = []
         copy.append(row)
